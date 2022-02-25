@@ -268,7 +268,7 @@
 
 ### Luego 
 
-**git push -u origin master**
+**git push -u origin main**
 
 ### Para bajar los cambios del repositorio subido a github y tenerlos en nuestro proyecto se hace un:
 
@@ -282,6 +282,11 @@
 
 **git clone linkCLone NombreArchivo** 
 > El nombre es opcional en caso de no poner se bajara con el nombre que esta en el repositorio.
+
+### Para Eliminar un git remote
+**git remote -v** 
+> Para ver los git remote que hay y elejimos el que queremos eliminar en este caso origin
+**git remote rm origin**
 
 ### Git Fetch
 
