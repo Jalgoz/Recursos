@@ -24,7 +24,7 @@
 > Agregamos todos los PDFs dentro de la carpeta pdfs.
 
 **git add pdfs/** 
-> Agregamos todos los archivos que esten dentro de pdfs/
+> Agregamos todos los archivos que estén dentro de pdfs/
 
 **git add "*.txt"** 
 > Agregamos todos los txt de todo el proyecto.
@@ -43,7 +43,7 @@
 ## Git Log
 
 **git log** 
-> Muesta todos los commits.
+> Muestra todos los commits.
 
 **git log --oneline** 
 > Muestra los commits resumidos.
@@ -82,13 +82,13 @@
 > Para eliminar el ultimo commit pero no perder los cambios. 
 
 **git reset --soft hashCode** 
-> Nos lleva hasta el punto en el tiempo de ese hashCode pero no elimina los cambios que esten por encima del hashCode.
+> Nos lleva hasta el punto en el tiempo de ese hashCode pero no elimina los cambios que estén por encima del hashCode.
 
 **git reset --mixed hashCode** 
-> Nos lleva al punto del hashCode y nos muestra los cambios que hay entre el ultimo punto al punto del hashCode pero no elimina los cambios que esten por encima del hashCode..
+> Nos lleva al punto del hashCode y nos muestra los cambios que hay entre el ultimo punto al punto del hashCode pero no elimina los cambios que estén por encima del hashCode..
 
 **git reset --hard hashCode** 
-> Nos lleva al punto del hashCoce y borra todos los cambios que estubieran por encima de este punto.
+> Nos lleva al punto del hashCode y borra todos los cambios que estuvieran por encima de este punto.
 
 ## Git Diff
 
@@ -96,7 +96,7 @@
 > Muestra los cambios que se hizo en el documento.
 
 **git diff --staged** 
-> Igual muestra los cambios pero que esten en el stage.
+> Igual muestra los cambios pero que estén en el stage.
 
 **git diff Rama1 Rama2** 
 > Para ver los cambios que hay de una rama a otra.
@@ -118,7 +118,7 @@
 > Cuando cambiamos el nombre de un archivo sin utilizar git se tiene que seguir esos pasos luego un commit y ya(No recomendado).
 
 **git rm nombreArchivo** 
-> Para elimar un nombre en git(Recomendado) luego se tiene que hacer el commit de esto.
+> Para eliminar un nombre en git(Recomendado) luego se tiene que hacer el commit de esto.
 
 ## Git Branch
 
@@ -126,13 +126,13 @@
 > Para crear una rama.
 
 **git branch -d nombreRama** 
-> Para eliminar una rama(Recomendable borrar una rama despues de hacerle merge al master).
+> Para eliminar una rama(Recomendable borrar una rama después de hacerle merge al master).
 
 **git checkout nombreRama** 
 > Para cambiar de rama.
 
 **git chekout -b nombreRama** 
-> Para crear la rama y cambiarnos a ella automaticamente.
+> Para crear la rama y cambiarnos a ella automáticamente.
 
 ## Git Merge
 
@@ -170,7 +170,7 @@
 > Nos vuelve al ultimo commit pero nos guarda todos los cambio que hayamos hecho.
 
 **git show stash** 
-> Nos muestra la informacion del stash.
+> Nos muestra la información del stash.
 
 **git stash save "Mensaje"** 
 > Guarda el stash con un mensaje
@@ -191,7 +191,7 @@
 > Se aplica el primer stash.
 
 **git stash save --include-untracked** 
-> Incluye todos los archivos inclutendo a los que no les hace seguimiento.
+> Incluye todos los archivos incluyendo a los que no les hace seguimiento.
 
 ## Para configurar alias 
 
@@ -203,7 +203,7 @@
 
 **git s** ----> **git status -s -b**
 
-## Para ver la configuracion actual del git
+## Para ver la configuración actual del git
 
 **git  config --global -e** 
 > Muestra la config del git
@@ -217,10 +217,10 @@
 
 ### Se puede decir que actualizamos las ramas con los cambios
 
-### Primero hacemos un rebase en la rama secundaria y agregamos master para indicar que ahi se hara el rabase
+### Primero hacemos un rebase en la rama secundaria y agregamos master para indicar que ahi se hará el rebase
 
 **git rebase master** 
-> Una las ramas pero el master se queda atras.
+> Una las ramas pero el master se queda atrás.
 
 **git checkout master** 
 > Para cambiar a la rama principal.
@@ -230,12 +230,12 @@
 
 ## Para unir 2 commits
 
-### Utilizamos rebase interactivo y le pasamo HEAD~NumeroCommits y con este head agarramos los commits que queramos
+### Utilizamos rebase interactivo y le pasamos HEAD~NumeroCommits y con este head agarramos los commits que queramos
 
 **git rebase -i HEAD~4** 
 > Se pone el numero de los commits que se agarraran
 
-### Luego nos saldra el editor y ponemos squash o s en vez de pick al commit que queremos unir solo a uno, guardamos los cambios y cerramos la pestaña
+### Luego nos saldrá el editor y ponemos squash o s en vez de pick al commit que queremos unir solo a uno, guardamos los cambios y cerramos la pestaña
 
 ### Para cambiar el mensaje de cualquier commit igual hacemos el anterior paso pero ponemos r en vez de pick
 
@@ -246,13 +246,13 @@
 **git rebase -i HEAD~2** 
 > Se pone el numero del commit que se quiere revertir 
 
-### Se abrira el editor y hay que poner edit o e en lugar de pick
+### Se abrirá el editor y hay que poner edit o e en lugar de pick
 
 ### Luego guardamos los cambios y cerramos la pestaña y ponemos el siguiente comando
 
 **git reset HEAD^**
 
-### Con eso nos revertira el ultimo commit sin perder los cambios que teniamos
+### Con eso nos revertirá el ultimo commit sin perder los cambios que teníamos
 
 ### Una vez realizamos las modificaciones necesarias debemos poner el siguiente comando si o siguiente
 
@@ -285,18 +285,18 @@
 
 ### Para Eliminar un git remote
 **git remote -v** y luego **git remote rm origin**
-> Para ver los git remote que hay y elejimos el que queremos eliminar en este caso origin
+> Para ver los git remote que hay y elegimos el que queremos eliminar en este caso origin
 
 
 ### Git Fetch
 
 **git fetch** 
-> Se usa cuando hicimos cambios en el repositorio local y tambien se hizo cambio en el Github, tambien se usa git fetch cuando intentando subir con un git push nos sale un error de Rejected.
+> Se usa cuando hicimos cambios en el repositorio local y también se hizo cambio en el Github, también se usa git fetch cuando intentando subir con un git push nos sale un error de Rejected.
 
 ### Luego usamos:
 
 **git pull** 
-> Despues del git fetch usamos el pull, puede que lo usemos mas de una vez.
+> Después del git fetch usamos el pull, puede que lo usemos mas de una vez.
 
 **git push** 
 > Por ultimo hacemos un git push. 
@@ -306,7 +306,7 @@
 ### Cualquier cambio o archivo nuevo hacerlo en una rama aparte para no dañar el master
 
 **git push origin nombreRama** 
-> Para subir la rama donde se hicieron los cambios, se crea automaticamente un pull request en GitHub
+> Para subir la rama donde se hicieron los cambios, se crea automáticamente un pull request en GitHub
 
 **git pull --all** 
 > Por si no bajara todos los cambias a nuestro repositorio local.
@@ -321,17 +321,17 @@
 > Para eliminar una rama que no quiera se borrada
 
 **git push origin :nombreRama**
-> Para borrar las ramas rojas que nos aparescan con git branch -a.
+> Para borrar las ramas rojas que nos aparezcan con git branch -a.
 
 **git remote prune origin**
 > Para borrar las ramas que ya hayan sido borradas en el GitHub
 
 ## Issues 
 
-### Se abren para arreglar algun problema que haya
-### Recomendable cerrar la conversacion si es un repositorios publico
+### Se abren para arreglar algún problema que haya
+### Recomendable cerrar la conversación si es un repositorios publico
 
 **git commit -m "mensaje fixes #Nro"**
-> Para poder cerra el issues desde la tarminar se pone fixex/closes despues del mensaje pero dentro de las comillas seguido del numeral del issues
+> Para poder cerra el issues desde la terminar se pone fixex/closes después del mensaje pero dentro de las comillas seguido del numeral del issues
 
 ### Prueba
