@@ -42,3 +42,27 @@ JavaScript es una lenguaje de alto nivel, orientado a objetos y multiparadigma.
 `.shift() -> Elimina el primer elemento del array`  
 `.indexOf('Valor') -> Retorna la posición del valor que le mandamos si no esta el elemento en el array retorna -1`  
 `.include('Valor') -> Retorna true o false dependiendo si el valor existe en el array`
+____________________________________________
+## Objetos en JS
+### Los objetos se declaran de distinta manera para empezar estan encapsulados en un corchete y tiene la propiedad de clave, valor, puede haber arrays y otros objetos dentro de un objeto
+`const persona = {`  
+    `firstName: 'Jose',`  
+    `lastName: 'Lozada',`  
+    `age: 2022 - 1995,`   
+    `job: 'Student',`   
+    `friends: {
+        friend1: 'Carlos',
+        friend2: 'Marco',
+    }`   
+`};`
+
+### Para acceder a las variables dentro del objeto persona se puede hacer de 2 maneras con '.' y '[]'
+`console.log(persona.firstName);`  
+`console.log(persona.['firstName']);`  
+### La ventaja del segundo es que se puede pasar un string o obtenerlo de otro modo
+`const nameKey = 'first' + 'Name'`   
+`console.log(persona.[nameKey]); // Devolverá el nombre de persona, además tambien puede ser un dato obtenido por el usuario`  
+
+
+
+
