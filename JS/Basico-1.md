@@ -8,6 +8,8 @@ JavaScript es una lenguaje de alto nivel, orientado a objetos y multiparadigma.
 | Function Scope | Si  | Si  | Si    |
 | Block Scope    | Si  | Si  | No    |
 
+>let y const te permite declarar variables limitando su alcance (scope) al bloque, declaración, o expresión donde se está usando. a diferencia de la palabra clave var la cual define una variable global o local en una función sin importar el ámbito del bloque. var puede ser llamada incluso antes de ser inicializada pero esto es una mala práctica debido a que pueden aparecer errores inesperados.
+
 ## Convertir datos
 `De string a number -> Number()`  
 `De number a string -> String()`
@@ -31,9 +33,11 @@ JavaScript es una lenguaje de alto nivel, orientado a objetos y multiparadigma.
 `const calcAge2 = function (birthYear) {
     return 2037 - birthYear;
 }`
+>Se le asigna la palabra reservada this, y esta tendrá el valor del objeto que llama a este método, si lo llama otra función o método, this tendrá el valor de undefined
 
 `// Arrow Function`  
 `const calcAge3 = birthYear => 2037 - birthYear;`
+>No se le asigna la palabra reservada this, si llamamos dentro de un arrow function tendrá el valor del ámbito global
 
 ## Array Method's
 `.push('Valor') -> Agrega un valor nuevo al final del array`  
@@ -61,8 +65,7 @@ ____________________________________________
 `console.log(persona.['firstName']);`  
 ### La ventaja del segundo es que se puede pasar un string o obtenerlo de otro modo
 `const nameKey = 'first' + 'Name'`   
-`console.log(persona.[nameKey]); // Devolverá el nombre de persona, además tambien puede ser un dato obtenido por el usuario`  
+`console.log(persona.[nameKey]); // Devolverá el nombre de persona, además también puede ser un dato obtenido por el usuario`  
 
-
-
+__________________________________________
 
