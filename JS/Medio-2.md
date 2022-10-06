@@ -25,7 +25,7 @@ En JS se pueden pasar como argumentos a una función otra función a esto se lla
 `transformer('JavaScript is the very best!', oneWord);`  
 > Retornará = javascriptistheverybest!
 
-## Métodos CALL y APPLY
+## Métodos CALL, APPLY y BIND
 Estos métodos se usan para poder de cierta manera decir donde debe apuntar la palabra this al llamar un método
 
 `const lufthansa = {`    
@@ -47,5 +47,23 @@ Para que esto funcione y se pueda incluso reutilizar el código se hace el méto
 `book.call(lufthansa, 23, 'Joe Doe');`   
 > Ahora si funcionara correctamente
 
-Tambien funciona con el método APPLY, con la diferencia que como segundo parámetro se debe recibir un array y en call method puede ser todos los argumentos necesarios, pero apply quedo un poco obsoleto debido a que ahora existe spread operator.   
-`book.apply(lufthansa, [23, 'Joe Doe'])`   
+También funciona con el método APPLY, con la diferencia que como segundo parámetro se debe recibir un array y en call method puede ser todos los argumentos necesarios, pero apply quedo un poco obsoleto debido a que ahora existe spread operator.   
+`book.apply(lufthansa, [23, 'Joe Doe'])`  
+
+También se usa el método bind que es muy similar a call
+`const bookLW = book.bind(lufthansa);`  
+> Así podemos unir el método con la función para que funcione 
+
+Con un ejemplo más practico:
+`lufthansa.planes = 300;`  
+`lufthansa.buyPlane = function () {`   
+  `console.log(this);`   
+  `this.planes++;`   
+  `console.log(this.planes);`   
+`};`    
+
+`document`   
+  `.querySelector('.buy')`  
+  `.addEventListener('click', lufthansa.buyPlane.bind`     
+  `(lufthansa));`  
+> Aquí podemos ver como unir el método buyPlane a lufthansa, porque sino de otro modo la palabra this seria del método de que se llama en este caso .queryselector('.buy').
