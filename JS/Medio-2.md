@@ -1,6 +1,6 @@
 # JavaScript
-## Funciones de Alto-Orden
-En JS se pueden pasar como argumentos a una función otra función a esto se llama funciones de alto-orden, siendo la que recibe la función la de alto-orden, siempre que se pasa una función a otra, solo se debe pasar el nombre sin los paréntesis.
+## Funciones de Orden-Superior
+En JS se pueden pasar como argumentos a una función otra función a esto se llama funciones de Orden-Superior, siendo la que recibe la función la de Orden-Superior, siempre que se pasa una función a otra, solo se debe pasar el nombre sin los paréntesis.
 
 `const oneWord = function (str) {`    
   `return str.replace(/ /g, '').toLowerCase();`  
@@ -11,19 +11,19 @@ En JS se pueden pasar como argumentos a una función otra función a esto se lla
   `return [first.toUpperCase(), ...others].join(' ');`   
 `};`  
 
-`// Higher-order function`   
+`// High-order function`   
 `const transformer = function (str, fn) {`   
-  `console.log(`Original string: ${str}`);`  
-  `console.log(`Transformed string: ${fn(str)}`);`   
+  `console.log("Original string: " + str);`  
+  `console.log("Transformed string: " + fn(str));`   
 
-  `console.log(`Transformed by: ${fn.name}`);`    
+  `console.log("Transformed by: " + fn.name);`    
 `};` 
 
 `transformer('JavaScript is the very best!', upperFirstWord);`
 > Retornará = JAVASCRIPT is the very best!
 
 `transformer('JavaScript is the very best!', oneWord);`  
->Retornará = javascriptistheverybest!
+> Retornará = javascriptistheverybest!
 
 ## Métodos CALL y APPLY
 Estos métodos se usan para poder de cierta manera decir donde debe apuntar la palabra this al llamar un método
@@ -43,7 +43,7 @@ Estos métodos se usan para poder de cierta manera decir donde debe apuntar la p
 `book(23, 'Joe Doe');`   
 > Esta no funcionará ya que la palabra this será undefined, debido a que se esta llamando como una función regular
 
-Para que esto funcione y se pueda incluso reutilizar se hace el método CALL
+Para que esto funcione y se pueda incluso reutilizar el código se hace el método CALL
 `book.call(lufthansa, 23, 'Joe Doe');`   
 > Ahora si funcionara correctamente
 
