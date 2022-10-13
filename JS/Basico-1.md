@@ -38,14 +38,6 @@ JavaScript es una lenguaje de alto nivel, orientado a objetos y multiparadigma.
 `// Arrow Function`  
 `const calcAge3 = birthYear => 2037 - birthYear;`
 >No se le asigna la palabra reservada this, si llamamos dentro de un arrow function tendrá el valor del ámbito global
-
-## Array Method's
-`.push('Valor') -> Agrega un valor nuevo al final del array`  
-`.unshift('Valor') -> Agrega un valor nuevo al principio del array`
-`.pop() -> Elimina el último elemento del array`  
-`.shift() -> Elimina el primer elemento del array`  
-`.indexOf('Valor') -> Retorna la posición del valor que le mandamos si no esta el elemento en el array retorna -1`  
-`.include('Valor') -> Retorna true o false dependiendo si el valor existe en el array`
 ____________________________________________
 ## Objetos en JS
 ### Los objetos se declaran de distinta manera para empezar estan encapsulados en un corchete y tiene la propiedad de clave, valor, puede haber arrays y otros objetos dentro de un objeto
@@ -66,6 +58,3 @@ ____________________________________________
 ### La ventaja del segundo es que se puede pasar un string o obtenerlo de otro modo
 `const nameKey = 'first' + 'Name'`   
 `console.log(persona.[nameKey]); // Devolverá el nombre de persona, además también puede ser un dato obtenido por el usuario`  
-
-__________________________________________
-

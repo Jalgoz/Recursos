@@ -67,3 +67,30 @@ Con un ejemplo más practico:
   `.addEventListener('click', lufthansa.buyPlane.bind`     
   `(lufthansa));`  
 > Aquí podemos ver como unir el método buyPlane a lufthansa, porque sino de otro modo la palabra this seria del método de que se llama en este caso .queryselector('.buy').
+
+## Immediately Invoked Function Express (IIFE)
+Estas son funciones que solo se pueden ejecutar una vez:  
+`(function () {`  
+  `console.log('This will never run again');`   
+`})();`    
+
+` (() => {`  
+  `console.log('This will never run again');`    
+`})();`  
+>Como se puede ver no tienen nombre y estan encerradas en paréntesis y al final tienen la llamada con ();. Estas funciones ya no podran ser llamadas nunca más
+
+## Closures (Cierres)
+
+`const secureBooking = function () {`   
+  `let passengerCount = 0;`    
+
+  `return function () {`   
+    `passengerCount++;`    
+    `console.log(passengerCount + " passenger");`    
+  `};`   
+`};`  
+
+`const booker = secureBooking(); // Ahora booker es la función que retorna secureBooking();`  
+`booker(); // passenger 1`  
+`booker(); // passenger 2`    
+> Como podemos ver arriba el alcance de la variable passengerCount esta en la función secureBooking por lo que al terminar de ejecutarse esta función también debería dejar de existir. Pero más abajo se ve que se esta asignando a booker la función que accede a la variable passengerCount, a simple vista uno podría decir que cuando llamemos a booker() dará error pero noo, de hecho si podrá acceder y aumentar el valor de passengerCount. A esto se la llama Closure, esto permite que no se pierda la conexión con las variables que existen en el lugar donde nace la función booker. En otras palabra cuando booker es creado se crea una conexión con secureBooking por la cual puede acceder a la variable passengerCount. Programaticamente no hay forma de acceder a la variable passengerCount desde booker. 
