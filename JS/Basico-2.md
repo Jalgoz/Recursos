@@ -64,3 +64,20 @@ document.querySelector('.clase').style.width='15px';
 `});`    
 >'e' es la tecla que se presiono y e.key es en nombre exacto de esa tecla
 
+### Para insertar HTML desde JS se utiliza el siguiente método
+
+```
+const html = '<div>Hola mundo</div>';
+document.querySelector('.clase').insertAdjacentHTML('afterbegin', html);
+```
+Como primer parámetro recibe uno de estos 4: 
+* 'beforebegin': Antes que el propio elemento.
+* 'afterbegin': Justo dentro del elemento, antes de su primer elemento hijo.
+ * 'beforeend': Justo dentro del elemento, después de su último elemento hijo.
+* 'afterend': Después del propio elemento.
+
+También esta el método que nos devuelve todo el contenido de un elemento del DOM.
+
+`document.querySelector('.clase').innerHTML = '';`
+> Con esta propiedad se puede obtener el contenido de ese elemento e incluso settearlo a vació
+
