@@ -71,6 +71,20 @@ console.log('Jose'.at(-1));
 ```
 > El método at es recomendable usar cuando se busca extraer el último elemento de un array
 
+## Método Entries
+```
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+for (let a of arr.entries()) console.log(`Posición ${a[0] + 1}: ${a[1]}`);
+// Imprime
+Posición 1: a
+Posición 2: b
+Posición 3: c
+Posición 4: d
+Posición 5: e
+```
+> Con el método entries podemos acceder a la posición y al valor de los datos de un array
+
 ## Método Foreach
 ```
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
@@ -116,3 +130,15 @@ movements.forEach(function (mov, i, arr) {
 });
 ```
 > Con el foreach ya se recibe el dato, indice y todo el array. **Cuando se debe usar foreach o of: En general se debe usar el foreach es mejor, pero en el foreach no se puede usar break si o si recorrerá todo el array, por lo que si se necesita usar break se debe usar el of**
+
+## Método Map
+
+```
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+
+const movementsUSD = movements.map(mov => mov * eurToUsd);
+console.log(movementsUSD);
+```
+> Map devuelve un array con las modificaciones que hicimos al array en la función, el método map puede acceder al valor, indice y al array completo en si. El map no muta al array original.

@@ -1,4 +1,20 @@
 # JavaScript
+## Encadenamiento opcional (?.)
+Muchas veces cuando queremos llamar a un método que no existe o iterar sobre una posición del array que no existe nos da error. Pero esto ahora puede ser controlado con el encadenamiento opcional ya que nos permite evitar el error
+```
+let users = [{name: 'Jose', email: 'jalgoz95@gmail.com'}];
+users = [];
+
+console.log(users[0].name); // Esto dará error
+console.log(users[0]?.name); // Esto mostrará undefined
+
+const metodo = {
+
+}
+
+console.log(metodo?.noExiste?.tampocoExiste); // Esto mostrará undefined
+```
+
 ## Funciones de Orden-Superior
 En JS se pueden pasar como argumentos a una función otra función a esto se llama funciones de Orden-Superior, siendo la que recibe la función la de Orden-Superior, siempre que se pasa una función a otra, solo se debe pasar el nombre sin los paréntesis.
 
