@@ -142,3 +142,4 @@ const movementsUSD = movements.map(mov => mov * eurToUsd);
 console.log(movementsUSD);
 ```
 > Map devuelve un array con las modificaciones que hicimos al array en la función, el método map puede acceder al valor, indice y al array completo en si. El map no muta al array original.
+
