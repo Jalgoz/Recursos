@@ -117,8 +117,62 @@ movements.forEach(function (mov, i, arr) {
 ```
 > Con el foreach ya se recibe el dato, indice y todo el array. **Cuando se debe usar foreach o of: En general se debe usar el foreach es mejor, pero en el foreach no se puede usar break si o si recorrerá todo el array, por lo que si se necesita usar break se debe usar el of**
 
-## Método Map
+## SET
+```
+const ordersSet = new Set([
+  'Pasta',
+  'Pizza',
+  'Pizza',
+  'Risotto',
+  'Pasta',
+  'Pizza',
+]);
+```
 
+`console.log(ordersSet); // Set(3) {'Pasta', 'Pizza', 'Risotto'}`
+> En un SET todos los valores repetidos son eliminados
+
+`console.log(ordersSet.size); // 3`
+> Para ver la longitud del SET
+
+`console.log(ordersSet.has('Pizza')); // true`
+> Para verificar si se tiene un elemento en particular
+
+`ordersSet.add('Garlic Bread');`
+> Para añadir un nuevo elemento
+
+`ordersSet.delete('Risotto');`
+> Para eliminar un elemento del SET
+
+`ordersSet.clear();`
+> Para eliminar todos los elementos del SET
+
+`console.log(ordersSet[0]);`
+> No se puede acceder por el indice, por que básicamente los SET no tienen indice
+
+`for (const order of ordersSet) console.log(order);`
+> Es posible iterar los SETs
+
+## Para convertir de SET a ARRAY y viceversa
+```
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+
+// const staffUnique = new Set(staff); // Para convertir un array a SET
+
+const staffUnique = [...new Set(staff)]; // Para eliminar los elementos duplicados pero conservarlos en un array
+```
+
+## Cuando usar Set o Array
+**Arrays:**   
+* Usar cuando necesitamos listas ordenadas
+* Cuando necesitamos manipular la data
+  
+**Sets:**   
+* Usar cuando necesitamos trabajar con valores únicos
+* Necesitamos eliminar los datos duplicados de un array
+   
+
+## Método Map
 ```
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 

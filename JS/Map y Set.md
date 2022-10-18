@@ -1,51 +1,5 @@
-# MAP y SET
-## SET
-```
-const ordersSet = new Set([
-  'Pasta',
-  'Pizza',
-  'Pizza',
-  'Risotto',
-  'Pasta',
-  'Pizza',
-]);
-```
-
-`console.log(ordersSet); // Set(3) {'Pasta', 'Pizza', 'Risotto'}`
-> En un SET todos los valores repetidos son eliminados
-
-`console.log(ordersSet.size); // 3`
-> Para ver la longitud del SET
-
-`console.log(ordersSet.has('Pizza')); // true`
-> Para verificar si se tiene un elemento en particular
-
-`ordersSet.add('Garlic Bread');`
-> Para añadir un nuevo elemento
-
-`ordersSet.delete('Risotto');`
-> Para eliminar un elemento del SET
-
-`ordersSet.clear();`
-> Para eliminar todos los elementos del SET
-
-`console.log(ordersSet[0]);`
-> No se puede acceder por el indice, por que básicamente los SET no tienen indice
-
-`for (const order of ordersSet) console.log(order);`
-> Es posible iterar los SETs
-
-## Para convertir de SET a ARRAY y viceversa
-```
-const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
-
-// const staffUnique = new Set(staff); // Para convertir un array a SET
-
-const staffUnique = [...new Set(staff)]; // Para eliminar los elementos duplicados pero conservarlos en un array
-```
-
+# MAP
 ## MAP
-
 `const rest = new Map();`  
 > Los MAPs son como array pero tienen un llave y un valor
 
@@ -107,3 +61,12 @@ currencies.forEach(function (value, key, map) {
 });
 ```
 > Como se pude ver el primer valor que recibe la función foreach es el valor, luego viene la llave y por último el mapa en sí.
+
+## Cuando usar Object o Map
+**Objects:**   
+* Usar cuando necesitamos incluir funciones
+* Cuando trabajamos con JSON (Se puede convertir a map)
+  
+**Maps:**   
+* Usar cuando necesitamos que las llaves no sean solo strings
+* Cuando solo necesitamos llave / valor
