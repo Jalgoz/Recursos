@@ -95,20 +95,6 @@ movements.forEach(function (movement) {
 ```
 > El método foreach como se conoce
 
-### El foreach también sirve para recorrer MAP y SET
-```
-const currencies = new Map([
-  ['USD', 'United States dollar'],
-  ['EUR', 'Euro'],
-  ['GBP', 'Pound sterling'],
-]);
-
-currencies.forEach(function (value, key, map) {
-  console.log(`${key}: ${value}`);
-});
-```
-> Como se pude ver el primer valor que recibe la función foreach es el valor, luego viene la llave y por último el mapa en sí.
-
 ## Foreach vs Of
 ```
 for (let [i, movement] of movements.entries()) {

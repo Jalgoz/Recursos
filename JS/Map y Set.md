@@ -74,3 +74,36 @@ rest
 
 `rest.delete(1);`
 > Para eliminar un elemento del MAP
+
+`console.log(rest.has('categories'));`
+> Para verificar si existe la clave en el MAP
+
+`console.log(rest.size);`
+> Para obtener el tamaño del MAP
+
+`console.log([...rest]);`
+> Para convertir un map a array
+
+`const newMap = new Map(Object.entries(object));`
+> Para convertir un objet a map
+
+```
+console.log(rest.entries());
+console.log(rest.keys());
+console.log(rest.values());
+```
+> También se puede obtener las llaves y valores del mapa
+
+### El foreach también sirve para recorrer MAP y SET
+```
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+]);
+
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+```
+> Como se pude ver el primer valor que recibe la función foreach es el valor, luego viene la llave y por último el mapa en sí.
