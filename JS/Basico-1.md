@@ -40,7 +40,7 @@ JavaScript es una lenguaje de alto nivel, orientado a objetos y multiparadigma.
 >No se le asigna la palabra reservada this, si llamamos dentro de un arrow function tendrá el valor del ámbito global
 ____________________________________________
 ## Objetos en JS
-### Los objetos se declaran de distinta manera para empezar estan encapsulados en un corchete y tiene la propiedad de clave, valor, puede haber arrays y otros objetos dentro de un objeto
+### Los objetos se declaran de distinta manera para empezar están encapsulados en un corchete y tiene la propiedad de clave, valor, puede haber arrays y otros objetos dentro de un objeto
 `const persona = {`  
     `firstName: 'Jose',`  
     `lastName: 'Lozada',`  
