@@ -198,3 +198,11 @@ const deposits = movements.filter(mov => mov > 0);
 console.log(deposits); // (5) [200, 450, 3000, 70, 1300]
 ```
 > Filter devuelve un array con los datos que pasen el filtro, el truco es que pasan solo los que son true por eso siempre devolver en el arrow function del filter un boolean.
+
+## Método Reduce
+```
+const balance = movements.reduce((acc, cur, i, arr) => acc + cur, 0);
+
+console.log(balance); // 3840
+```
+> El método reduce nos ayuda acumular en las iteraciones, al final devolverá solo el acumulado, los parámetros que recibe son acc = el acumulado, cur = el dato actual de la iteración, i = el indice, arr = el array en si. También se le puede especificar en que posición queremos que empiece el acumulado en este caso empezará en 0.
