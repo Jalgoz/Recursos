@@ -130,7 +130,7 @@ ________________________________________________
 
 ### Spread, porque esta a la derecha de '='
 ### Rest, porque esta a la izquierda de '='
-`const [a, b, ...others] = [1, 2, 3, 4, 5]; // El resultado será que others será un array con 3 posiciones mientras a y b tendran un solo valor`
+`const [a, b, ...others] = [1, 2, 3, 4, 5]; // El resultado será que others será un array con 3 posiciones mientras a y b tendrán un solo valor`
 
 ### El elemento Rest siempre debe ser el ultimo elemento
 `const [x, y, ...othersZ, z] = [1, 2, 3, 4, 5]; // Esto esta mal saldrá error`

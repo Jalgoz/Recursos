@@ -10,6 +10,14 @@
 .include('Valor') -> Retorna true o false dependiendo si el valor existe en el array
 ```
 
+## Método Split
+```
+const splitArr = 'J o s e'.split(' ');
+console.log(arr); // (4) ['J', 'o', 's', 'e']
+```
+
+> No muta al array original, y devuelve un array dividido por el carácter que deseemos      
+
 ## Método Slice
 ``` 
 let arr = ['a', 'b', 'c', 'd', 'e'];
@@ -75,7 +83,8 @@ console.log('Jose'.at(-1));
 ```
 let arr = ['a', 'b', 'c', 'd', 'e'];
 
-for (let a of arr.entries()) console.log(`Posición ${a[0] + 1}: ${a[1]}`);
+for (let a of arr.entries()) 
+  console.log(`Posición ${a[0] + 1}: ${a[1]}`);
 // Imprime
 Posición 1: a
 Posición 2: b
@@ -183,3 +192,9 @@ console.log(movementsUSD);
 ```
 > Map devuelve un array con las modificaciones que hicimos al array en la función, el método map puede acceder al valor, indice y al array completo en si. El map no muta al array original.
 
+## Método Filter
+```
+const deposits = movements.filter(mov => mov > 0); 
+console.log(deposits); // (5) [200, 450, 3000, 70, 1300]
+```
+> Filter devuelve un array con los datos que pasen el filtro, el truco es que pasan solo los que son true por eso siempre devolver en el arrow function del filter un boolean.

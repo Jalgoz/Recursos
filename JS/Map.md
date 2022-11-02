@@ -27,7 +27,7 @@ rest
 > Para obtener el tamaño del MAP
 
 `rest.delete(1);`
-> Para eliminar un elemento del MAP
+> Para eliminar un elemento del MAP, buscara por la llave
 
 `console.log(rest.has('categories'));`
 > Para verificar si existe la clave en el MAP
