@@ -206,3 +206,20 @@ const balance = movements.reduce((acc, cur, i, arr) => acc + cur, 0);
 console.log(balance); // 3840
 ```
 > El método reduce nos ayuda acumular en las iteraciones, al final devolverá solo el acumulado, los parámetros que recibe son acc = el acumulado, cur = el dato actual de la iteración, i = el indice, arr = el array en si. También se le puede especificar en que posición queremos que empiece el acumulado en este caso empezará en 0.
+
+## Método Reduce
+```
+const firstWithdrawal = movements.find(mov => mov < 0);
+
+console.log(firstWithdrawal); // -400
+```
+
+> Busca en todo el array, y devuelve la primera ocurrencia si se busca que devuelve más de una usar mejor el filter.
+
+## Método findIndex
+```
+const index = movements.findIndex(
+      mov => mov === -400);
+console.log(index); // 2
+```
+> Devuelve la posición en la que se encuentra el dato a buscar.****

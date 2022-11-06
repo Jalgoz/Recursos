@@ -186,7 +186,7 @@
 
 ## Others
 `ctrl + enter`
-> Inser line below
+> Insert line below
 
 `ctrl + .`
 > Quick fix
@@ -196,3 +196,6 @@
 
 `ctrl + shift + w`
 > Close window
+
+`f2`
+> To change one variable, automatic change the other variables 

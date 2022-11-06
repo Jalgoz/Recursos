@@ -96,28 +96,31 @@ _____________________________________
 `console.log(...name); // resultado=(4) ['J', 'o', 's', 'e']` 
 
 ### También nos ayuda a copiar objetos
-`const restaurant = {`     
-  `name: 'Classico Italiano',`  
-  `location: 'Via Angelo Tavanti 23, Firenze, Italy',`  
-  `categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],`  
-  `starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread',`   `'Caprese`   `Salad'],`    
-  `mainMenu: ['Pizza', 'Pasta', 'Risotto'],`
-  `openingHours: {`   
-    `thu: {`   
-      `open: 12,`   
-      `close: 22,`    
-   `},`  
-    `fri: {`    
-      `open: 11,`     
-      `close: 23,`    
-   `},`   
-    `sat: {`   
-      `open: 0, // Open 24 hours`     
-      `close: 24,`    
-    `},`         
-  `},`  
+```
+const restaurant = {     
+  name: 'Classico Italiano',  
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',  
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],  
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread',   'Caprese   Salad'],    
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+  openingHours: {   
+    thu: {   
+      open: 12,   
+      close: 22,    
+   },  
+    fri: {    
+      open: 11,     
+      close: 23,    
+   },   
+    sat: {   
+      open: 0, // Open 24 hours     
+      close: 24,    
+    },         
+  },  
 
-  `const newRestaurant = {...restaurant};`   
+  const newRestaurant = {...restaurant};
+  ```   
+  > Copiando así, copiamos no la referencia sino el objeto por lo tanto si modifico newRestaurant no se modificara restaurant
 
 ________________________________________________
 ## Diferencia Spread operator y Destructuring
