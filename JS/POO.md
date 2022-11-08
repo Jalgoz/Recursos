@@ -1,6 +1,6 @@
 # Programación Orientada a Objetos en JS
 POO es un paradigma (estilo de código) de programación basado en los conceptos de objetos.
-Se usan los objetos para modelar (describir) o abstraer aspecto del mundo real. POO fue desarrollada con el principal objetivo de organizar código para hacerlo mas flexible y fácil de mantener.
+Se usan los objetos para modelar (describir) o abstraer aspecto del mundo real. POO fue desarrollada con el principal objetivo de organizar código para hacerlo mas flexible y fácil de mantener. POO no existe como tal en JS pero si se puede implementar de otras formas.
 
 ## Abstracción
 Ignora o oculta los detalles que no importan, permitiéndonos tener una vista general de lo que estamos implementando. Nos ayuda a simplificar los aspectos del mundo real que pueden llegar a ser muy complejos abstraiéndolos para una mejor comprensión. 
@@ -149,3 +149,161 @@ PersonCl.hey(); // Hello
 jose.hey(); // Uncaught TypeError: jose.hey is not a function
 ```
 > Para crear métodos estáticos se debe crear con la palabra reservada static. Solo la clase puede acceder a este método NO los objetos instanciados de esta clase.
+
+## Object.create()
+```
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthday);
+  },
+
+  // Función común que hará de función constructora
+  init(firstName, birthday) {
+    this.firstName = firstName;
+    this.birthday = birthday;
+  },
+};
+
+const steven = Object.create(PersonProto);
+// Inicializamos el objeto steven
+steven.init('Steven', 1998);
+console.log(steven); // {firstName: 'Steven', birthday: 1998}
+steven.calcAge(); // 39
+```
+> Esta es la última forma de implementar POO en JS, en este caso se crea un objeto con las funciones que se tendrán luego se instancia con el `Object.create(Objeto)` de esta manera se esta vinculando el objeto intanciado con el prototipo al no contar con una función constructora se le debe agregar una. Esta el la manera menos común de POO en JS.
+
+## Herencia con Función constructora
+```
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const mike = new Student('Mike', 2000, 'Computer Science');
+mike.introduce(); // My name is Mike and I study Computer Science
+mike.calcAge(); // 37
+
+console.log(mike instanceof Student); // True
+console.log(mike instanceof Person); // True
+```
+> De esta forma se puede heredar un clase de otra, se tiene que llamar al constructor de la otra clase padre y asignar la palabra 'this' con el método call al objeto creado(this). Para poder heredar los métodos se tiene que hacer otro paso en el cual asignamos el prototipo del hijo a un objeto creado del prototipo del padre, este paso se tiene que hacer antes de crear cualquier otro método del hijo sino se eliminaran lo métodos previos a esta asignación.
+
+### Sobreescritura de métodos
+Cuando se heredan métodos de un padre a su hijo, el hijo puedo sobrescribir el método sin problema y al final el método usado será el del hijo.
+
+## Herencia con Clases ES6
+```
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this._fullName = fullName;
+    this._birthYear = birthYear;
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  set fullName(name) {
+    this._fullName = name;
+  }
+
+  introduce() {
+    console.log(`My name is ${this._fullName}`);
+  }
+}
+
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    // Siempre debe suceder primero (super)
+    super(fullName, birthYear);
+    this._course = course;
+  }
+
+  introduce() {
+    console.log(`My name is ${this._fullName} and I study ${this._course}`);
+  }
+}
+
+const seth = new StudentCl('Seth Lozada', 2022, 'Computer Science');
+seth.introduce(); // My name is Seth Lozada and I study Computer Science
+console.log(seth.fullName); // Seth Lozada
+```
+
+## Campos y Métodos privados
+```
+class Account {
+  // Public fields
+  locale;
+
+  // Private fields
+  #movements;
+  #pin;
+
+  constructor(owner, pin) {
+    this.owner = owner;
+    this.#pin = pin;
+    this.#movements = [];
+    this.locale = navigator.language;
+  }
+
+  // Private methods
+  #approveLoan(val) {
+    return true;
+  }
+
+  // Public methods
+  requestLoan(val) {
+    if (this.#approveLoan(val)) {
+      this.deposit(val);
+    }
+  }
+}
+```
+> Para declara los campos y métodos públicos simplemente se declara sin nada por delante. Para declararlos privados se agrega '#' de este modo ya no se podrá acceder a estos atributos desde fuera de la clase. Lo métodos declarados privados no estarán en el prototype del objeto sino en la instancia como una variable más.
+
+## Encadenar métodos
+```
+class Account {
+  // Private fields
+  #movements;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.#movements = [];
+  }
+
+  getMovements() {
+    return this.#movements;
+  }
+
+  deposit(val) {
+    this.#movements.push(val);
+    return this;
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+    return this;
+  }
+}
+
+const acc1 = new Account('Jose', 'EUR', 1111);
+acc1.deposit(250).withdraw(130).deposit(500).deposit(150);
+console.log(acc1.getMovements()); // (4) [250, -130, 500, 150]
+```
+> Para encadenar métodos de un objeto simplemente en el método se debe retornar el objeto en si osea 'this'.
