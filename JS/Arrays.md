@@ -7,7 +7,7 @@
 .pop() -> Elimina el último elemento del array  
 .shift() -> Elimina el primer elemento del array  
 .indexOf('Valor') -> Retorna la posición del valor que le mandamos si no esta el elemento en el array retorna -1  
-.include('Valor') -> Retorna true o false dependiendo si el valor existe en el array
+.includes('Valor') -> Retorna true o false dependiendo si el valor existe en el array
 ```
 
 ## Método Split
@@ -207,7 +207,7 @@ console.log(balance); // 3840
 ```
 > El método reduce nos ayuda acumular en las iteraciones, al final devolverá solo el acumulado, los parámetros que recibe son acc = el acumulado, cur = el dato actual de la iteración, i = el indice, arr = el array en si. También se le puede especificar en que posición queremos que empiece el acumulado en este caso empezará en 0.
 
-## Método Reduce
+## Método Find
 ```
 const firstWithdrawal = movements.find(mov => mov < 0);
 
@@ -222,4 +222,103 @@ const index = movements.findIndex(
       mov => mov === -400);
 console.log(index); // 2
 ```
-> Devuelve la posición en la que se encuentra el dato a buscar.****
+> Devuelve la posición en la que se encuentra el dato a buscar.
+
+## Método Some 
+```
+console.log(movements); // (8) [200, 450, -400, 3000, -650, -130, 70, 1300]
+console.log(movements.some(mov => mov > 1500)); // True
+console.log(movements.some(mov => mov > 5000)); // False
+```
+> Devuelve true si un elemento del arreglo cumple la condición. Solo es necesario que uno lo cumpla y devolverá true en caso de que ninguno cumpla retornará false.
+
+## Método Every 
+```
+console.log(movements.every(mov => mov > 0)); // False
+const movements2 = [430, 1000, 700, 50, 90];
+console.log(movements2.every(mov => mov > 0)); // True
+```
+> Every retorna true si todos los elementos cumplen con la condición en caso contrario devolverá false.
+
+## Método Flat
+```
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr); // (4) [Array(3), Array(3), 7, 8]
+console.log(arr.flat()); // 8) [1, 2, 3, 4, 5, 6, 7, 8]
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat()); // (6) [Array(2), 3, 4, Array(2), 7, 8]
+console.log(arrDeep.flat(2)); // (8) [1, 2, 3, 4, 5, 6, 7, 8]
+```
+> EL método Flat desanida array's anidados volviéndola un array de un solo nivel. Si se tiene varios niveles de anidación de array se le tiene que pasar como parámetro hasta que nivel se quiere desanidar.
+
+## Método Flat
+```
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr); // (4) [Array(3), Array(3), 7, 8]
+console.log(arr.flat()); // 8) [1, 2, 3, 4, 5, 6, 7, 8]
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat()); // (6) [Array(2), 3, 4, Array(2), 7, 8]
+console.log(arrDeep.flat(2)); // (8) [1, 2, 3, 4, 5, 6, 7, 8]
+```
+> EL método Flat desanida array's anidados volviéndola un array de un solo nivel. Si se tiene varios niveles de anidación de array se le tiene que pasar como parámetro hasta que nivel se quiere desanidar.
+
+## Método FlatMap
+```
+const balance = accounts.flatMap(acc => acc.movements);
+console.log(balance);
+```
+> Flatmap te permite iterar sobre un objeto ya creado, luego tal como flat desanidará los array's. Con flatmap solo se puede desanidar un nivel.
+
+## Método Sort
+```
+// Strings
+console.log(owners); // ['Jonas Schmedtmann', 'Jessica Davis', 'Steven Thomas Williams', 'Sarah Smith']
+
+console.log(owners.sort()); // ['Jessica Davis', 'Jonas Schmedtmann', 'Sarah Smith', 'Steven Thomas Williams']
+```
+> El método sort muta el array original
+```
+// Numbers
+console.log(movements); // [200, 450, -400, 3000, -650, -130, 70, 1300]
+
+// return > 0 = B , A (Switch order)
+// return < 0 = A , B (Keep order)
+
+const sortNumberAsc = (a, b) => a - b;
+const sortNumberDes = (a, b) => b - a;
+
+console.log(movements.sort(sortNumberAsc)); //[-650, -400, -130, 70, 200, 450, 1300, 3000]
+console.log(movements.sort(sortNumberDes)); // [3000, 1300, 450, 200, 70, -130, -400, -650]
+```
+>Para ordenar números se debe mandar una callback function al sort ya que sino lo ordenara como si fuera una cadena de strings. La lógica es que si se retorna un número mayor a 0 entonces se cambiará de posición de (A, B) a (B, A) y si es menor a 0 no mantendrá la posición.
+
+## Método Fill
+```
+const x = new Array(7);
+console.log(x); // (7) [vacío × 7]
+
+x.fill(1, 3, 6); 
+console.log(x); // (7) [vacío × 3, 1, 1, 1, vacío]
+```
+> Con el método fill podemos llenar una matriz vacía, ya que no se podrá hacerlo con map. El primer parámetro que recibe es el dato con el que se desea rellenar el array, el segundo es desde que indice se quiere empezar y el último es hasta donde se quiere llenar, si se quiere llenar todo el array solo mandar `x.fill(1)`. Se pueden llenar también arrays con datos ya existentes.
+
+## Array.From
+```
+const y = Array.from({ length: 7 }, () => 1);
+console.log(y); // (7) [1, 1, 1, 1, 1, 1, 1]
+
+const z = Array.from({ length: 7 }, (_, i) => i + 1);
+console.log(z); // (7) [1, 2, 3, 4, 5, 6, 7]
+```
+> Nos ayuda a crear arrays programaticamente pudiendo controlar que datos queremos que sean los que contenga el array.
+
+## Pasar arrow functions
+```
+const deposit = mov => mov > 0;
+console.log(movements.some(deposit)); // True
+console.log(movements.every(deposit)); // False
+console.log(movements.filter(deposit)); // (5) [200, 450, 3000, 70, 1300]
+```
+> A estos métodos se les puede pasar una variable que contenga un función, es más optimo y más funcional
