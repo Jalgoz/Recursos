@@ -125,14 +125,28 @@
 **git branch nombreRama** 
 > Para crear una rama.
 
-**git branch -d nombreRama** 
-> Para eliminar una rama(Recomendable borrar una rama después de hacerle merge al master).
-
 **git checkout nombreRama** 
 > Para cambiar de rama.
 
 **git chekout -b nombreRama** 
 > Para crear la rama y cambiarnos a ella automáticamente.
+
+**git branch -d nombreRama** 
+> Para eliminar una rama(Recomendable borrar una rama después de hacerle merge al master).
+
+## Renombrar branch y eliminar rama en el repo
+Para renombrar una rama localmente y eliminarla en el repositorio seguir los siguientes pasos:
+**git check -m new-name**
+> Si estas en la rama que deseas eliminar 
+
+**git check -m old-name new-name**
+> Si quieres renombrar una rama que no sea en la que estas actualmente
+
+**git push origin --delete branch-name**
+> Con esto eliminas la rama en el repositorio 
+
+**git push origin branch-name**
+> Vuelves a subir la rama renombrada
 
 ## Git Merge
 
