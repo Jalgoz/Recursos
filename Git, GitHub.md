@@ -120,6 +120,9 @@
 **git rm nombreArchivo** 
 > Para eliminar un nombre en git(Recomendado) luego se tiene que hacer el commit de esto.
 
+**git rm --cached nombreArchivo** 
+> Para eliminar un archivo que ya se encuentra en el repositorio, pero no lo eliminara de los archivos locales
+
 ## Git Branch
 
 **git branch nombreRama** 
