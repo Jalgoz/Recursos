@@ -352,7 +352,7 @@ Para renombrar una rama localmente y eliminarla en el repositorio seguir los sig
 > Para poder cerra el issues desde la terminar se pone fixex/closes después del mensaje pero dentro de las comillas seguido del numeral del issues
 
 ### Prueba
-
+`git -c http.sslVerify=false clone <url>`
 `git config --global http.sslbackend schannel`
 > Configura Git para usar la implementación SSL/TLS de Windows Schannel para conexiones HTTPS.
 Schannel es una implementación basada en Windows de los protocolos SSL/TLS utilizados para asegurar las comunicaciones en red. Es utilizado por varios productos de Microsoft y también puede ser utilizado por otras aplicaciones de software que requieran soporte para SSL/TLS.
