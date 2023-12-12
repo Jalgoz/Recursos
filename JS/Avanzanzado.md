@@ -40,11 +40,9 @@ Detrás de escenas async funciona con promesas, por lo que es importante entende
 Una promesa es un objeto que representa la terminación o el fracaso de una operación asíncrona. Una promesa puede estar en uno de los siguientes estados:
 
 - pending: estado inicial, no cumplida o rechazada.
+- settled: la promesa se cumplió o rechazó, pero no está pendiente.
 - fulfilled: significa que la operación se completó satisfactoriamente.
 - rejected: significa que la operación falló.
-- settled: la promesa se cumplió o rechazó, pero no está pendiente.
-- resolved: se ha resuelto: se ha cumplido o rechazado.
-- unresolved: no se ha resuelto: pendiente.
 
 Una promesa se crea con el constructor `Promise`. Para crear una promesa, se debe pasar una función callback con dos parámetros: `resolve` y `reject`. Estos son métodos que se utilizan para determinar el resultado de la promesa.
 
@@ -74,6 +72,13 @@ promesa
     console.log(error); // Imprime: ¡Algo salió mal!
   });
 ```
+
+### Promesas race, all y allSettled
+Las promesas tienen varios métodos estáticos que se pueden utilizar para manejar múltiples promesas.
+
+* El método `Promise.race` se utiliza para ejecutar múltiples promesas en paralelo y obtener el resultado de la primera que se resuelve.
+* El método `Promise.all` se utiliza para ejecutar múltiples promesas en paralelo y obtener el resultado de todas las promesas.
+* El método `Promise.allSettled` se utiliza para ejecutar múltiples promesas en paralelo y obtener el resultado de todas las promesas, incluso si alguna de ellas falla.
 
 ## AJAX
 AJAX es una técnica de programación que permite actualizar una página web sin necesidad de recargarla. Esto se logra utilizando JavaScript para enviar y recibir datos de un servidor web.
